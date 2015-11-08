@@ -19,7 +19,8 @@ from .views import main_view
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^(home/|'
+    url(r'^(|'
+        r'home/|'
         r'about/|'
         r'providers/|'
         r'services/|'
