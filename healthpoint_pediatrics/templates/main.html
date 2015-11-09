@@ -2,4 +2,23 @@
 
 {% block main_menu %}
 {{ block.super }}
+    <li class="{{ menu.home }}"><a href="#">Home</a></li>
+    <li class="{{ menu.about }}"><a href="#about">About</a></li>
+    <li class="{{ menu.providers }}"><a href="#providers">Providers</a></li>
+    <li class="{{ menu.services }}"><a href="#services">Services</a></li>
+    <li class="{{ menu.location }}"><a href="#location">Location</a></li>
+    <li class="{{ menu.hours }}"><a href="#hours">Hours</a></li>
+    <li class="{{ menu.financial }}"><a href="#financial">Financial</a></li>
+    <li class="{{ menu.contact }}"><a href="#contact">Contact</a></li>
+{% endblock %}
+
+{% block content %}
+  <section id="home" class="{{ home_class }}"></section>
+  <section id="about" class="{{ about_class }}"></section>
+  <section id="providers" class="{{ providers_class }}"></section>
+  <section id="services" class="{{ services_class }}"></section>
+  <section id="location" class="{{ location_class }}"></section>
+  <section id="hours" class="{{ hours_class }}"></section>
+  <section id="financial" class="{{ financial_class }}"></section>
+  <section id="contact" class="{{ contact_class }}"></section>
 {% endblock %}
