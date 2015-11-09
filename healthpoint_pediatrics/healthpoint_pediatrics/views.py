@@ -13,7 +13,7 @@ def main_view(request, page):
     context = {
         'page': page,
         'title': page,
-        'menu': {
+        'menu_selector': {
             'home': '',
             'about': '',
             'providers': '',
@@ -22,11 +22,23 @@ def main_view(request, page):
             'hours': '',
             'financial': '',
             'contact': ''
+            },
+        'content_visibility': {
+            'home': 'row ',
+            'about': 'row ',
+            'providers': 'row ',
+            'services': 'row ',
+            'location': 'row ',
+            'hours': 'row ',
+            'financial': 'row ',
+            'contact': 'row '
             }
         }
         
-    for key in context['menu']:
+    for key in context['menu_selector']:
+        visibility = 'hidden'
         if key == page:
-            context['menu'][key] = 'active'
-            
+            context['menu_selector'][key] = 'active'
+            visibility = 'visible'
+        context['content_visibility'][key] += visibility
     return render(request, 'main.html', context)
