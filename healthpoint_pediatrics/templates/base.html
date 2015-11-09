@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="wrapper-{{page}}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>{{ title }}</title>
+    <title>{{ title | capfirst }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
@@ -46,11 +46,9 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container">
       {% block content %}{% endblock %}
     </div><!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
