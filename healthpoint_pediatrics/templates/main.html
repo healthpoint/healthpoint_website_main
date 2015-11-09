@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main_menu %}
+<!-- add class="active" on a <li> element-->
+<ul class="nav navbar-nav">
+    <li {{ menu.home }}><a href="#">Home</a></li>
+    <li {{ menu.about }}><a href="#about">About</a></li>
+    <li {{ menu.providers }}><a href="#providers">Providers</a></li>
+    <li {{ menu.services }}><a href="#services">Services</a></li>
+    <li {{ menu.location }}><a href="#location">Location</a></li>
+    <li {{ menu.hours }}><a href="#hours">Hours</a></li>
+    <li {{ menu.financial }}><a href="#financial">Financial</a></li>
+    <li {{ menu.contact }}><a href="#contact">Contact</a></li>
+</ul>
+{% endblock %}
