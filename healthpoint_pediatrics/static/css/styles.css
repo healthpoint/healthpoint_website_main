@@ -12,11 +12,42 @@ html {
     background-size: cover;
 }
 
-.wrapper-home {
+.bg-home {
     background-image: url(/static/img/home.jpg);
+    background-color: #1483ec;
 }
 
-.wrapper-location {
-    background: #f0d79f;
+.bg-location {
+    background-color: #f0d79f;
     background-image: url(/static/img/location.jpg);
+}
+
+.bg-about {
+    background-color: #274ab0;
+    background-image: url(/static/img/about.jpg);
+}
+
+.bg-providers {
+    background-color: #63B522;
+    background-image: url(/static/img/providers.jpg);
+}
+
+.bg-services {
+    background-color: #96D7F3;
+    background-image: url(/static/img/services.jpg);
+}
+
+.bg-hours {
+    background-color: #ACD43F;
+    background-image: url(/static/img/hours.jpg);
+}
+
+.bg-financial {
+    background-color: #EFF490;
+    background-image: url(/static/img/financial.jpg);
+}
+
+.bg-contact {
+    background-color: #50B3DD;
+    background-image: url(/static/img/contact.jpg);
 }
