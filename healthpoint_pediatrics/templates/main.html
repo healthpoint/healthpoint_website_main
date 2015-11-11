@@ -2,23 +2,23 @@
 
 {% block main_menu %}
 {{ block.super }}
-    <li class="{{ menu_selector.home }}"><a href="#">Home</a></li>
-    <li class="{{ menu_selector.about }}"><a href="#about">About</a></li>
-    <li class="{{ menu_selector.providers }}"><a href="#providers">Providers</a></li>
-    <li class="{{ menu_selector.services }}"><a href="#services">Services</a></li>
-    <li class="{{ menu_selector.location }}"><a href="#location">Location</a></li>
-    <li class="{{ menu_selector.hours }}"><a href="#hours">Hours</a></li>
-    <li class="{{ menu_selector.financial }}"><a href="#financial">Financial</a></li>
-    <li class="{{ menu_selector.contact }}"><a href="#contact">Contact</a></li>
+    <li class="{{ menu_item.home }}"><a href="#home">Home</a></li>
+    <li class="{{ menu_item.about }}"><a href="#about">About</a></li>
+    <li class="{{ menu_item.providers }}"><a href="#providers">Providers</a></li>
+    <li class="{{ menu_item.services }}"><a href="#services">Services</a></li>
+    <li class="{{ menu_item.location }}"><a href="#location">Location</a></li>
+    <li class="{{ menu_item.hours }}"><a href="#hours">Hours</a></li>
+    <li class="{{ menu_item.financial }}"><a href="#financial">Financial</a></li>
+    <li class="{{ menu_item.contact }}"><a href="#contact">Contact</a></li>
 {% endblock %}
 
 {% block content %}
-    <section id="home" class="{{ content_visibility.home }}">{% include "includes/home.html" %}</section>
-    <section id="about" class="{{ content_visibility.about }}">{% include "includes/about.html" %}</section>
-    <section id="providers" class="{{ content_visibility.providers }}">{% include "includes/providers.html" %}</section>
-    <section id="services" class="{{ content_visibility.services }}">{% include "includes/services.html" %}</section>
-    <section id="location" class="{{ content_visibility.location }}">{% include "includes/location.html" %}</section>
-    <section id="hours" class="{{ content_visibility.hours }}">{% include "includes/hours.html" %}</section>
-    <section id="financial" class="{{ content_visibility.financial }}">{% include "includes/financial.html" %}</section>
-    <section id="contact" class="{{ content_visibility.contact }}">{% include "includes/contact.html" %}</section>
+    <section id="home" class="row {{ content_visibility.home }}">{% include "includes/home.html" %}</section>
+    <section id="about" class="row {{ content_visibility.about }}">{% include "includes/about.html" %}</section>
+    <section id="providers" class="row {{ content_visibility.providers }}">{% include "includes/providers.html" %}</section>
+    <section id="services" class="row {{ content_visibility.services }}">{% include "includes/services.html" %}</section>
+    <section id="location" class="row {{ content_visibility.location }}">{% include "includes/location.html" %}</section>
+    <section id="hours" class="row {{ content_visibility.hours }}">{% include "includes/hours.html" %}</section>
+    <section id="financial" class="row {{ content_visibility.financial }}">{% include "includes/financial.html" %}</section>
+    <section id="contact" class="row {{ content_visibility.contact }}">{% include "includes/contact.html" %}</section>
 {% endblock %}

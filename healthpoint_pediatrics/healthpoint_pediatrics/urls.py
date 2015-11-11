@@ -19,14 +19,15 @@ from .views import main_view
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^(|'
-        r'home/|'
-        r'about/|'
-        r'providers/|'
-        r'services/|'
-        r'location/|'
-        r'hours/|'
-        r'financial/|'
-        r'contact/)$', main_view),
+    # url(r'^(|'
+    #     r'home/|'
+    #     r'about/|'
+    #     r'providers/|'
+    #     r'services/|'
+    #     r'location/|'
+    #     r'hours/|'
+    #     r'financial/|'
+    #     r'contact/)$', main_view),
+    url(r'^$', main_view),
 ]
 
