@@ -3,7 +3,8 @@ $(document).ready(function() {
         // get visible section, active menu, and bg class
         var currentVisibleSection = $("#content section").not(".hidden");
         var currentActiveMenu = $("#navbar ul li").filter(".active");
-        var currentBgClass = $("#bg").attr('class');
+        var $content = $("#content");
+        var currentBgClass = $content.attr('class');
 
         // ajax call to download background picture
         // save it in a cash
@@ -21,39 +22,24 @@ $(document).ready(function() {
             $(currentActiveMenu).removeClass("active");
             currentActiveMenu = newActiveMenu;
             
-            // change visible section
-            $(currentVisibleSection).addClass("hidden");
-            $(newVisibleSection).removeClass("hidden");
-            currentVisibleSection = newVisibleSection;
-            
             // change site title
             var newTitle = newSectionId.charAt(0).toUpperCase() + newSectionId.slice(1);
             $("title").text(newTitle);
             
-            // change background
-            // var newBgClass = "bg-" + newSectionId;
-            // $("#bg").removeClass(currentBgClass);
-            // $('#bg').addClass("bg-" + newSectionId);
-            // currentBgClass = newBgClass;
+            // hide current visible section
+            $(currentVisibleSection).addClass("hidden");
             
+            // change background with fading out/in animation
             var newBgClass = "bg-" + newSectionId;
-            $("#bg").animate({opacity: 0}, 'slow', function() {
-                $("#bg").removeClass(currentBgClass);
-                $('#bg').addClass("bg-" + newSectionId).animate({opacity: 1});
+            $content.animate({opacity: 0}, 'slow', function() {
+                $("#content").removeClass(currentBgClass);
                 currentBgClass = newBgClass;
-            });
-            // $('#bg').animate({opacity: 0}, 'slow', function() {
-            //     $(this).css({'background-image': 'url(1.jpg)'}).animate({opacity: 1});
-                //});
+                $("#content").addClass("bg-" + newSectionId).animate({opacity: 1}, 'slow', function() {
+                    // show new visible section
+                    $(newVisibleSection).removeClass("hidden");
+                    currentVisibleSection = newVisibleSection;
+                    });
+                });
+                
         });
-        // change visible section
-        // show section, hide others
-        // if background picture for the section -> display it
-        // else ajax call for the background picture
-            // save it in cash
-            // display it
-   
-   // set up animation functions to change page sections
-   
-   // ajax requests for other backgrounds
 });
