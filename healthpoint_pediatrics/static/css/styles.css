@@ -3,7 +3,12 @@ body {
   background-color: transparent;
 }
 
-html {
+#bg {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -52,4 +57,5 @@ html {
     background-color: #50B3DD;
     background-image: url(/static/img/contact.jpg);
 }
+
 

@@ -3,7 +3,7 @@ $(document).ready(function() {
         // get visible section, active menu, and bg class
         var currentVisibleSection = $("#content section").not(".hidden");
         var currentActiveMenu = $("#navbar ul li").filter(".active");
-        var currentBgClass = $("html").attr('class');
+        var currentBgClass = $("#bg").attr('class');
 
         // ajax call to download background picture
         // save it in a cash
@@ -31,10 +31,20 @@ $(document).ready(function() {
             $("title").text(newTitle);
             
             // change background
+            // var newBgClass = "bg-" + newSectionId;
+            // $("#bg").removeClass(currentBgClass);
+            // $('#bg').addClass("bg-" + newSectionId);
+            // currentBgClass = newBgClass;
+            
             var newBgClass = "bg-" + newSectionId;
-            $("html").removeClass(currentBgClass);
-            $('html').addClass("bg-" + newSectionId);
-            currentBgClass = newBgClass;
+            $("#bg").animate({opacity: 0}, 'slow', function() {
+                $("#bg").removeClass(currentBgClass);
+                $('#bg').addClass("bg-" + newSectionId).animate({opacity: 1});
+                currentBgClass = newBgClass;
+            });
+            // $('#bg').animate({opacity: 0}, 'slow', function() {
+            //     $(this).css({'background-image': 'url(1.jpg)'}).animate({opacity: 1});
+                //});
         });
         // change visible section
         // show section, hide others
