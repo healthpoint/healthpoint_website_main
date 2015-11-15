@@ -1,9 +1,18 @@
 $(document).ready(function() {
-    // Set padding on the #content based on navbar height
+    
+    /** Sets padding on the #content based on navbar height
+     * 
+     * On smaller screens navbar displays in two lines and doubles
+     * in size. The function sets body padding-top equal to the 
+     * navbar height
+     *
+     **/
     function setPadding() {
         var padding = $('#main-nav.navbar div.container').css('height');
         $('#content').css('padding-top', padding );
     }
+    
+    // Set correct padding on initial loading
     setPadding();
     
     // Adjust padding on resize
@@ -11,15 +20,12 @@ $(document).ready(function() {
         setPadding();
     });
     
-   // check what is active and download active background via ajax
-    // get visible section, active menu, and bg class
+    // get visible section, active menu, and .content objects
     var currentVisibleSection = $("#content section").not(".hidden");
     var currentActiveMenu = $("#main-nav.navbar ul li").filter(".active");
     var $content = $("#content");
     var currentBgClass = $content.attr('class');
 
-    // current nav
-   
    // set up event handlers for menu buttons clicks
     // menu link onclick event handler
     $(".navbar ul li").on("click", function(e){
@@ -48,8 +54,8 @@ $(document).ready(function() {
                 // show new visible section
                 $(newVisibleSection).removeClass("hidden");
                 currentVisibleSection = newVisibleSection;
-                });
             });
+        });
             
     });
     // collapses the menu on a xs screen after the link was clicked
