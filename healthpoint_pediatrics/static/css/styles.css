@@ -23,6 +23,10 @@ body {
 	background-position: center center;
 }
 
+#content section {
+    padding-bottom: 40px;
+}
+
 footer {
     background: rgba(2, 2, 2, 0.3);
     color: #fff;
