@@ -4,37 +4,56 @@ from django.utils import timezone
 import pytz
 
 # contains regular weekly work schedule
-schedule = {
-    'monday': { 'open': True,
-                'start': 8,
-                'end': 19 },
-    'tuesday': { 'open': True, 
-                 'start': 8,
-                 'end': 19 },
-    'wednesday': { 'open': True, 
-                'start': 8,
-                'end': 20 },
-    'thursday': { 'open': True, 
-                 'start': 8,
-                 'end': 19 },
-    'friday': { 'open': True, 
-                 'start': 8,
-                 'end': 14 },
-    'saturday': { 'open': True, 
-                 'start': 10,
-                 'end': 13 },
-    'sunday': { 'open': False, 
-                 'start': 'closed',
-                 'end': 'closed' }
-    }
+schedule = [    
+    {   "short_name": "Sun",
+        "long_name": "Sunday",
+        "open": False, 
+        "start": 0,
+        "end": 0 },
+        
+    {   "short_name": "Mon",
+        "long_name": "Monday",
+        "open": True,
+        "start": 8,
+        "end": 19 },
+        
+    {   "short_name": "Tue",
+        "long_name": "Tuesday",
+        "open": True, 
+        "start": 8,
+        "end": 19 },
+        
+    {   "short_name": "Wed",
+        "long_name": "Wednesday",
+        "open": True, 
+        "start": 8,
+        "end": 20 },
+        
+    {   "short_name": "Thu",
+        "long_name": "Thursday",
+        "open": True, 
+        "start": 8,
+        "end": 19 },
+        
+    {   "short_name": "Fri",
+        "long_name": "Friday",
+        "open": True, 
+        "start": 8,
+        "end": 14 },
+        
+    {   "short_name": "Sat",
+        "long_name": "Saturday",
+        "open": True, 
+        "start": 10,
+        "end": 13 }
+    ]
 
 def work_today():
-    utc = pytz.utc
-    dt = utc.localize(datetime.datetime.now())
-    
-    eastern = pytz.timezone('US/Eastern')
-    print(dt, dt.astimezone(eastern))
-    
-if __name__ == '__main__':
+    pass
+ 
+ 
+################################################################################   
+
+if __name__ == "__main__":
     work_today()
     
