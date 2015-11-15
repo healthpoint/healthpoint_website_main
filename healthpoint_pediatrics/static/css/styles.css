@@ -1,26 +1,46 @@
+html, body {
+    height: 100%;
+}
+
 body {
-  padding-top: 50px;
   background-color: transparent;
 }
 
+.jumbotron {
+    background-color: transparent;
+}
+
+.jumbotron img {
+    width: 80%;
+}
+
 #content {
-    position: absolute;
-    top: 50px;
-    bottom: 0;
+    /*padding-top: 50px;*/
+    min-height: 100%;
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+footer {
+    background: rgba(2, 2, 2, 0.3);
+    color: #fff;
+    min-height: 40px;
+    position: fixed;
     left: 0;
     right: 0;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    bottom: 0;
+    padding-top: 13px;
+}
+
+#info p {
+    text-align: center;
 }
 
 .bg-home {
-    background-image: url(/static/img/home.jpg);
-    background-color: #1483ec;
+    background-image: url(/static/img/field-kids.jpg);
+    background-color: rgba(241, 200, 120, 1);
 }
 
 .bg-location {
@@ -59,4 +79,62 @@ body {
 }
 
 
+/******************************************************************************/
+/*@media queries*/
+/******************************************************************************/
+/* Custom, iPhone Retina */ 
+    @media only screen and (min-width : 320px) {
+       
+    }
 
+    /* Extra Small Devices, Phones */ 
+    /*@media only screen and (min-width : 480px)*/
+    /*                   and (max-width: 767px) {*/
+    /*     #home-content img {*/
+    /*        display: none;*/
+    /*    }*/
+    /*}*/
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+
+    }
+/*******************************************************************************/
+    /* Large Devices, Wide Screens */
+    @media only screen and (max-width : 1200px) {
+
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (max-width : 992px) {
+        .jumbotron p {
+            font-size: 1em;
+        }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+         .jumbotron p {
+            padding-top: 20px;
+        }
+    }
+
+    /* Extra Small Devices, Phones */ 
+    @media only screen and (max-width : 480px) {
+
+    }
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 320px) {
+        
+    }
