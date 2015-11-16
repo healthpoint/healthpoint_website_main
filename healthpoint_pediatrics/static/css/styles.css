@@ -6,12 +6,14 @@ body {
   background-color: transparent;
 }
 
-.jumbotron {
-    background-color: transparent;
+.navbar-brand {
+    background-color: #BE0081;
+    color: rgb(0, 0, 0) !important;
 }
-
-.jumbotron img {
-    width: 80%;
+.navbar-brand:hover {
+    background-color: rgb(152, 0, 125) !important;
+    color: #fff !important; 
+    /*font-weight: bold !important;*/
 }
 
 #content {
@@ -25,21 +27,6 @@ body {
 
 #content section {
     padding-bottom: 40px;
-}
-
-footer {
-    background: rgba(2, 2, 2, 0.3);
-    color: #fff;
-    min-height: 40px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding-top: 13px;
-}
-
-#info p {
-    text-align: center;
 }
 
 .bg-home {
@@ -81,6 +68,32 @@ footer {
     background-color: #50B3DD;
     background-image: url(/static/img/contact.jpg);
 }
+
+.jumbotron {
+    background-color: transparent;
+}
+
+.jumbotron img {
+    width: 80%;
+}
+
+
+
+footer {
+    background: rgba(2, 2, 2, 0.3);
+    color: #fff;
+    min-height: 40px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 13px;
+}
+
+#info p {
+    text-align: center;
+}
+
 
 
 /******************************************************************************/

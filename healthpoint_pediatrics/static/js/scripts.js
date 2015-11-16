@@ -3,7 +3,6 @@ $(document).ready(function() {
 /******************************************************************    
 *       INITIAL SETUP
 ******************************************************************/
-
     // get visible section, active menu, and .content objects
     var $currentVisibleSection = $("#content section").not(".hidden");
     var $currentActiveMenu = $("#main-nav.navbar ul li").filter(".active");
@@ -32,6 +31,24 @@ $(document).ready(function() {
         }
     });
     
+    // brand button click handler
+    $("div.navbar-header a.navbar-brand").click(function(e) {
+        var $newActiveMenu = $("#li-home");
+        console.log($newActiveMenu);
+        var newSectionId = $(e.target).attr("href").slice(1);
+        var $newVisibleSection = $("#" + newSectionId);
+        var newBgClass = "bg-" + newSectionId;
+        
+        // change active link
+        changeActiveLink($newActiveMenu);
+        
+        // change site title
+        changeSectionTitle (newSectionId);
+        
+        // change background with fading /in animation
+        chgBgAndSectionAnimation (newBgClass, newSectionId, $newVisibleSection);
+    });
+    
     // menu link onclick event handler
     $(".navbar ul li").on("click", function(e){
         var $newActiveMenu = $(e.delegateTarget);
@@ -48,7 +65,6 @@ $(document).ready(function() {
         // change background with fading /in animation
         chgBgAndSectionAnimation (newBgClass, newSectionId, $newVisibleSection);
     });
-    
     
 /***********************************************
  *      HELPER FUNCTIONS
