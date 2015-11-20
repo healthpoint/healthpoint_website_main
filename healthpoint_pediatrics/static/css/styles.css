@@ -29,6 +29,14 @@ body {
     padding-bottom: 40px;
 }
 
+#home-content img {
+    display: block;
+    position: absolute;
+    bottom: 80px;
+    right: 10px;
+    width: 0;
+}
+
 .bg-home {
     background-image: url(/static/img/field-kids.jpg);
     background-color: rgba(241, 200, 120, 1);
@@ -90,7 +98,7 @@ footer {
     padding-top: 13px;
 }
 
-#info p {
+footer p {
     text-align: center;
 }
 
@@ -107,9 +115,7 @@ footer {
     /* Extra Small Devices, Phones */ 
     /*@media only screen and (min-width : 480px)*/
     /*                   and (max-width: 767px) {*/
-    /*     #home-content img {*/
-    /*        display: none;*/
-    /*    }*/
+    /*     
     /*}*/
 
     /* Small Devices, Tablets */
@@ -137,18 +143,34 @@ footer {
         .jumbotron p {
             font-size: 1em;
         }
+        #home-content img {
+            width: 20% !important;
+        }
     }
 
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
-         .jumbotron p {
+        .jumbotron p {
             padding-top: 20px;
+        }
+        #home-content img {
+            width: 20% !important;
+        }
+        
+        footer p {
+            font-size: 0.9em;
         }
     }
 
     /* Extra Small Devices, Phones */ 
     @media only screen and (max-width : 480px) {
-
+        footer p {
+            font-size: 0.8em;
+        }
+        
+        #home-content img {
+            width: 30% !important;
+        }
     }
 
     /* Custom, iPhone Retina */ 

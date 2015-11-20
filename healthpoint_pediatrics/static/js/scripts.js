@@ -9,9 +9,28 @@ $(document).ready(function() {
     var $content = $('#content');
     var currentBgClass = $content.attr('class');
     
+    var schedule = [ {"start": 0, "end": 0 },
+                     {"start" : 8, "end": 19},
+                     {"start" : 8, "end": 19},
+                     {"start" : 8, "end": 20},
+                     {"start" : 8, "end": 19},
+                     {"start" : 8, "end": 14},
+                     {"start" : 10, "end": 13}
+    ]
+    
+    // compose openInfo strings
+    var currentInfoO = currentInfo();
+    $("#current-date p").text(currentInfoO.currentDt);
+    $("#avail p span:first-child").text(currentInfoO.availability.first); 
+    $("#avail p span:nth-child(2)").text(currentInfoO.availability.second);
+    $("#avail p span:last-child").text(currentInfoO.availability.third);
+    
     // Set correct top padding on initial loading
     setTopPadding();
+    // set top padding
     setBottomPadding();
+    // show seHablaEspanol image
+    showSeHablaAnim();
 
 /***********************************************
  *      EVENT HANDLERS
@@ -34,10 +53,12 @@ $(document).ready(function() {
     // brand button click handler
     $("div.navbar-header a.navbar-brand").click(function(e) {
         var $newActiveMenu = $("#li-home");
-        console.log($newActiveMenu);
         var newSectionId = $(e.target).attr("href").slice(1);
         var $newVisibleSection = $("#" + newSectionId);
         var newBgClass = "bg-" + newSectionId;
+        
+        // collapse menu on small screen if extended
+        $('nav .navbar-collapse.in').collapse('hide');
         
         // change active link
         changeActiveLink($newActiveMenu);
@@ -47,6 +68,7 @@ $(document).ready(function() {
         
         // change background with fading /in animation
         chgBgAndSectionAnimation (newBgClass, newSectionId, $newVisibleSection);
+        
     });
     
     // menu link onclick event handler
@@ -64,6 +86,7 @@ $(document).ready(function() {
         
         // change background with fading /in animation
         chgBgAndSectionAnimation (newBgClass, newSectionId, $newVisibleSection);
+        
     });
     
 /***********************************************
@@ -108,7 +131,50 @@ $(document).ready(function() {
                         // show new visible section
                         $newVisibleSection.removeClass("hidden");
                         $currentVisibleSection = $newVisibleSection;
+                        // show SeHabla image
+                        showSeHablaAnim();
+                        // update footer time and availability info
+                        currentInfoO = currentInfo();
+                        $("#current-date p").text(currentInfoO.currentDt);
+                        $("#avail p span:first-child").text(currentInfoO.availability.first); 
+                        $("#avail p span:nth-child(2)").text(currentInfoO.availability.second);
+                        $("#avail p span:last-child").text(currentInfoO.availability.third);
                     });
             });
     }
+    
+    function showSeHablaAnim() {
+        var $homeImg = $('#home-content img');
+        $homeImg.css({'width': '0px', 'opacity': 0});
+        $homeImg.animate({width: '272px', 'opacity': 1}, 'slow');
+    }
+    
+    function currentInfo() {
+        var infoS = {};
+        var atlDate = window.moment.tz("America/New_York");
+        infoS['currentDt'] = atlDate.format("dddd, MMMM Do YYYY, LT") + " EST";
+        var weekday = atlDate.day();
+        var hour = atlDate.hour();
+        infoS['availability'] = getAvailability(weekday, hour);
+        return infoS;
+    }
+    
+    function getAvailability(weekday, hour) {
+        var info = {};
+        info['first'] = "The office is currently ";
+        if (weekday === 0) {
+            info['second'] = 'CLOSED';
+        }
+        else {
+            if ((hour >= schedule[weekday]['end']) || (hour < schedule[weekday]['start'])) {
+                info['second'] = 'CLOSED';
+            }
+            else {
+                info['second'] = 'OPEN';
+                info['third'] = ' until ' + schedule[weekday]['end'] + 'PM';
+            }
+        }
+        return info;
+    }
+    
 });

@@ -51,11 +51,14 @@
       <footer class="container-fluid">
           <div class="container">
             <div class="row">
-              <div class="col-md-3"></div>
-              <div #info class="col-md-6">
-                <p>Today (Saturday, November 14th) we are open from 10am until 1pm</p>
+              <div class="col-md-2"></div>
+              <div id="current-date" class="col-md-4">
+                <p class=""></p>
               </div>
-              <div class="col-md-3"></div>
+              <div id="avail" class="col-md-4">
+                <p class=""><span></span><span></span><span></span></p>
+              </div>
+              <div class="col-md-2"></div>
             </div>
           </div>
     </footer>
@@ -68,6 +71,8 @@
     <script src="{% static 'js/bootstrap.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script src="{% static 'js/moment.js' %}"></script>
+    <script src="{% static 'js/moment-timezone-with-data-2010-2020.js' %}"></script>
     <script src="{% static 'js/scripts.js' %}"></script>
   </body>
 </html>
